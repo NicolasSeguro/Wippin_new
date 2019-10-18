@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="pos-relative">
+
+  <header class="header js-header">
+
+    <div class="container">
+      <div class="row">
+        <nav class="js-header-nav header__nav">
+          <div class="header__grid header__grid--logo">
+            <a href="/" class="our-logo our-logo--header">
+              <span class="sr-only">Hussle.com - Home Page</span>
+            </a>
+          </div>
+
+          <!-- page specific header part if there is one -->
+
+          <div class="pull-right">
+            <!-- Search button mobile -->
+
+            <!-- Gift  -->
+
+            <!-- Wallet toggle  -->
+
+            <!-- Basket toggle  -->
+            <div id="parent-open-basket" class="header__grid">
+              <!-- Mobile basket toggle -->
+              <button
+                class="js-open-basket-mobile header__nav-btn header__nav-btn-basket btn btn--plain hidden-sm hidden-md hidden-lg hidden-xl hide"
+                onclick="ga('send', 'event', 'OnClick', 'Other Page', 'Basket', '0');">
+                <span class="sr-only">Toggle basket</span>
+                <span class="icon-mobile-basket"></span>
+                <span class="js-basket-total header__nav-btn-count">
+                  0 </span>
+              </button>
+
+              <!-- Desktop basket toggle -->
+              <button
+                class="js-open-basket-desktop header__nav-btn header__nav-btn-basket btn btn--plain hidden-xs hide"
+                onclick="ga('send', 'event', 'OnClick', 'Other Page', 'Basket', '0');">
+                <span class="sr-only">Toggle basket</span>
+                <span class="icon-mobile-basket"></span>
+                <span class="js-basket-total header__nav-btn-count">
+                  <span class="js-number-index">0</span>
+                </span>
+              </button>
+              <div class="js-basket-desktop js-dropdown-panel dropdown-panel dropdown-panel--basket basket"></div>
+            </div>
+            <!-- User menus / Sub nav  -->
+            <div class="header__grid">
+              <!-- Logged in  -->
+              <!-- Mobile subnav toggle  -->
+              <button type="button" class="js-open-menu btn btn--plain header__nav-btn-subnav visible-xs"
+                onclick="ga('send', 'event', 'OnClick', 'Other Page', 'Menu Button');">
+                <span class="sr-only">Toggle menu view</span>
+              </button>
+
+              <!-- Desktop login button  -->
+              <a href="https://www.hussle.com/login" title="Log In to Hussle"
+                class="js-open-login-desktop btn btn--keyline btn--rounded btn--login-register hidden-xs">
+                Log In
+              </a>
+
+              <a href="https://www.hussle.com/register"
+                onclick="ga('send', 'event', 'OnClick', 'Other Page', 'Register here Button');"
+                title="Register with Hussle"
+                class="js-open-register btn btn--keyline btn--rounded btn--login-register hidden-xs">
+                Register
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="search-filters__container js-search-filters-container">
+      <div class="container">
+        <div class="hide p-top15 p-bottom15" id="filters">
+          <!-- NORMAL FILTERS -->
+          <form action="action" id="normal-filters">
+
+            <div class="row">
+              <div class="col-xs-12 m-bottom10">
+                <h2 class="search-filters__title">Only show gyms with:</h2>
+
+                <input name="location" type="hidden" value="">
+
+                <div id="top-facilities">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="filter-distance clearfix">
+                  <div class="filter-distance__title text-center">Within <span id="distance-value"></span> miles from me
+                  </div>
+                  <div class="filter-distance__slider">
+                    <input type="range" min="1" max="20" value="" class="slider" name="distance" id="filter-distance">
+                    <label for="filter-distance" class="sr-only">Choose distance from location</label>
+                  </div>
+                  <span class="filter-distance__label pull-left">1 mile</span>
+                  <span class="filter-distance__label pull-right">20 miles</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row m-bottom50">
+              <div class="col-xs-6">
+                <button type="reset" class="js-reset-filters btn btn--sm btn--block btn--tertiary">Reset
+                  filters</button>
+              </div>
+              <div class="col-xs-6">
+                <button type="submit" class="btn btn--sm btn--block btn--primary">Close and apply filters</button>
+              </div>
+            </div>
+
+            <input type="hidden" name="modifier" id="modifier" value="" />
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="flexible-container" class="flexible-container">
+      <div id="menu" class="hide content">
+        <ul class="sub-nav">
+          <li class="sub-nav__login-container clearfix">
+            <a onclick="ga('send', 'event', 'OnClick', 'Mobile menu', 'Menu');" href="/login"
+              class="btn btn--primary sub-nav__login-btn">Log In</a>
+            <a onclick="ga('send', 'event', 'OnClick', 'Mobile menu', 'Menu');" href="/register"
+              class="btn btn--keyline sub-nav__login-btn">Register</a>
+          </li>
+          <li class="sub-nav__list-item">
+            <a class="sub-nav__link " onclick="ga('send', 'event', 'OnClick', 'Mobile menu', 'Menu');"
+              href="/flexible-gym-day-and-monthly-passes">Pass Types</a>
+          </li>
+          <li class="sub-nav__list-item">
+            <a class="sub-nav__link " onclick="ga('send', 'event', 'OnClick', 'Mobile menu', 'Menu');"
+              href="/refer-a-friend">Free credit</a>
+          </li>
+          <li class="sub-nav__list-item">
+            <a class="sub-nav__link " target="_blank" onclick="ga('send', 'event', 'OnClick', 'Mobile menu', 'Menu');"
+              href="/help">FAQs &amp; Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="basket" class="hide basket"></div>
+
+
+    </div>
+
+
+  </header>
+
+  <div class="flex-container button">
+
+    <!-- TITLE -->
+
+    <!--BREADCRUMBS-->
+
+
+    <!--CONTENT AREA-->
+
+    <div id="content">
+
+
+      <div>
+        <div class="container">
+          <div class="row ppc__top-part">
+            <div class="col-sm-6 col-sm-push-6 col-md-push-5 col-md-offset-1">
+              <h2 class="ppc__title">
+                Sign up for 3 months for the price of 2! </h2>
+              <p>
+                To help motivate you to achieve your goals we are offering 33% off a Monthly+ Pass for 3 months, when
+                you sign up for a minimum of 3 months. The Monthly+ Pass gives you unlimited access to multiple gyms. So
+                wherever you are, you can work out any way you want.<script type="text/javascript"
+                  src="https://platform-api.sharethis.com/js/sharethis.js#property=5cb709bbfb609900114d26bf&product=custom-share-buttons">
+                </script>
+              </p>
+
+
+              <a id="register-button"
+                href="https://www.hussle.com/checkout/apply-voucher-to-basket-user?vid=33MPLUS48HR"
+                class="btn btn--primary " onclick="ga('send', 'event', 'OnClick', 'Voucher', 'one-month-free');">
+                Apply voucher code </a>
+
+              <div>
+                <a class="ppc__t-and-c--anchor" href="#termsandconditions">
+                  Terms and Conditions apply
+                </a>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-sm-pull-6 col-md-5 col-md-pull-7">
+              <div class="ppc__image-wrapper">
+                <img class="ppc__image--top"
+                  src="https://static.hussle.com/upload/landing_pages/ppc_top/PAUG_DAY_ONE382_1_414x414.jpg" />
+                <div class="ppc__image--bottom-wrapper">
+                  <img class="ppc__image--bottom"
+                    src="https://static.hussle.com/upload/landing_pages/ppc_top/PAUG_DAY_TWO1114_(1)_290x290.jpg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="partner-registration-heading-section" style="height: 1116px" class="hidden">
+          <div id="signup-background-image"
+            style="height: 1116px; background: url('https://static.hussle.com/upload/landing_pages/background/Default.jpg')">
+          </div>
+          <div class="container p-top60 p-bottom40 white">
+            <div class="row partnership-logos">
+              <div class="col-xs-12 text-center">
+                <img class="partnership-paug-logo" src="/frontend/img/landingpage/signup/PAUGLogo.png" alt="Hussle">
+                <h3 class="white text-transform-none">In partnership with</h3>
+                <img class="partnership-paug-logo"
+                  src="https://static.hussle.com/upload/landing_pages/partner_logo/2.png" alt="Sample Partner">
+              </div>
+            </div>
+            <div class="space60"></div>
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <h2 class="text-center text-transform-none white m-bottom20 partner-title">Sign up for 3 months for the
+                  price of 2!</h2>
+                <p class="partner-description">To help motivate you to achieve your goals we are offering 33% off a
+                  Monthly+ Pass for 3 months, when you sign up for a minimum of 3 months. The Monthly+ Pass gives you
+                  unlimited access to multiple gyms. So wherever you are, you can work out any way you want.<script
+                    type="text/javascript"
+                    src="https://platform-api.sharethis.com/js/sharethis.js#property=5cb709bbfb609900114d26bf&product=custom-share-buttons">
+                  </script>
+                </p>
+              </div>
+            </div>
+            <div class="space60"></div>
+            <div class="row how-to-claim">
+              <div class="col-xs-offset-1 col-xs-10 text-center">
+                <h3 class="text-center text-transform-none white m-bottom10">How to claim</h3>
+              </div>
+              <div class="how-to-claim-images">
+                <div class="col-xs-3 text-center instruction">
+                  <img class="instruction-image" src="/frontend/img/landingpage/signup/How2claim1.png"
+                    alt="Hussle"><br />
+                  <span class="instruction-text">Step 1: Click Below To Apply Voucher</span>
+                </div>
+                <div class="col-xs-3 text-center instruction">
+                  <img class="instruction-image" src="/frontend/img/landingpage/signup/How2claim2.png" alt="Hussle">
+                  <span class="instruction-text">Step 2: Find Your Perfect Gym</span>
+                </div>
+                <div class="col-xs-3 text-center instruction">
+                  <img class="instruction-image" src="/frontend/img/landingpage/signup/How2claim3.png" alt="Hussle">
+                  <span class="instruction-text">Step 3: Voucher is Automatically Applied on Checkout</span>
+                </div>
+              </div>
+            </div>
+            <div class="space40"></div>
+            <div class="row partner-call-to-action text-center">
+              <div class="col-xs-offset-3 col-xs-6">
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <section id="how-hussle-works" class="how-it-works">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-md-7 col-lg-6 col-xl-6">
+                <h2 class="section-title">How Hussle works</h2>
+                <p class="how-it-works__desc">Hussle is a smart new way to visit the UK's best gyms so you can make
+                  fitness part of your day.</p>
+
+                <div class="hidden-xs hidden-sm">
+                  <ul class="how-it-work-ul how-it-works__list">
+                    <li class="active how-it-works__list-item" id="slide-type-in-your-location" data-slideId="0"><span
+                        class="font-medium">Gyms everywhere</span> - Search to find gyms near home, work, or wherever
+                      you are</li>
+                    <li class="how-it-works__list-item" id="slide-select-your-pass" data-slideId="1"><span
+                        class="font-medium">100% Flexible</span> - Go once with a day pass or as much as you like with
+                      our Monthly+ pass</li>
+                    <li class="how-it-works__list-item" id="slide-go-to-gym" data-slideId="2"><span
+                        class="font-medium">Easy to use</span> - Book easily, online or on the app. Just show your
+                      passcode at reception</li>
+                  </ul>
+                </div>
+
+                <div class="visible-xs visible-sm">
+                  <div class="how-it-works__owl-container">
+                    <div id="how-it-work-owl-mobile">
+                      <div data-slideContent="slide-type-in-your-location">
+                        <p class="how-it-works__owl-desc text-center"><span class="font-medium">Gyms everywhere
+                          </span><br />Search to find gyms near home, work, or wherever you are</p>
+                        <img class="w-1 lazyHowItWorkImgMobile" alt="Screenshot of location search"
+                          data-original="/frontend/img/home/mobile/type-in-your-location.jpg"
+                          src="/frontend/img/home/imgPlace1px.png">
+                      </div>
+                      <div data-slideContent="slide-select-your-pass">
+                        <p class="how-it-works__owl-desc text-center"><span class="font-medium">100% Flexible
+                          </span><br />Go once with a day pass or as much as you like with our Monthly+ pass</p>
+                        <img class="w-1 lazyHowItWorkImgMobile" alt="Screenshot of search results"
+                          data-original="/frontend/img/home/mobile/select-your-pass.jpg"
+                          src="/frontend/img/home/imgPlace1px.png">
+                      </div>
+                      <div data-slideContent="slide-go-to-gym">
+                        <p class="how-it-works__owl-desc text-center"><span class="font-medium">Easy to use
+                          </span><br />Book easily, online or on the app. Just show your passcode at reception</p>
+                        <img class="w-1 lazyHowItWorkImgMobile" alt="Screenshot of order confirmation"
+                          data-original="/frontend/img/home/mobile/go-to-gym.jpg"
+                          src="/frontend/img/home/imgPlace1px.png">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="how-form" class="how-it-works__form-container hidden-xs hidden-sm">
+                  <form action="/search" method="get" data-parsley-validated class="search-form clearfix">
+                    <div class="parsley-element search-form__location-input-container">
+                      <input type="hidden" name="geo-location" value="" class="js-search-form__geo-input">
+                      <button onclick="ga('send', 'event', 'OnClick', 'Homepage', 'Search Box Button');" type="button"
+                        class="btn btn--geo search-form__btn--geo js-search-form__btn-geo">
+                        <span class="sr-only">Use current location</span>
+                        <span class="js-icon-geo-location icon-geo-location"></span>
+                      </button>
+                      <label for="search-form-inputHow" class="sr-only">Enter postcode or location</label>
+                      <input id="search-form-inputHow"
+                        onfocus="ga('send', 'event', 'OnFocus', 'Homepage', 'Search Location');"
+                        onblur="ga('send', 'event', 'searchBlur', 'Homepage', 'Search Location');" type="text"
+                        name="location" value="" class="search-form__location-input js-search-form__location-input"
+                        placeholder="Enter postcode or location" data-parsley-no-markup="true" data-parsley-required
+                        data-parsley-minlength="2"
+                        data-parsley-required-message="Please enter a valid postcode or location"
+                        data-parsley-minlength-message="Please enter a valid location, minimum 2 characters required" />
+                    </div>
+                    <button type="submit"
+                      class="js-search-form__btn-submit btn btn--primary btn--block search-form__btn-submit"
+                      onclick="ga('send', 'event', 'OnClick', 'Homepage', 'Find Gyms ButtonHow');">
+                      <span class="js-search-form__btn-submit-text">Find Gyms</span>
+                      <div class="js-loader-dots loader-dots hidden">
+                        <span class="loader-dots-centre"></span>Loading...
+                      </div>
+                    </button>
+                  </form>
+                </div>
+              </div>
+
+              <div class="hidden-xs hidden-sm col-md-5 col-lg-6 col-xl-5">
+                <div class="js-lazy-load how-it-works__owl-container">
+                  <div id="how-it-work-owl">
+                    <div data-slideContent="slide-type-in-your-location">
+                      <img class="w-1 lazyHowItWorkImg" alt="Screenshot of location search"
+                        data-original="/frontend/img/home/placeImg/type-in-your-location.jpg"
+                        src="/frontend/img/home/imgPlace1px.png">
+                    </div>
+                    <div data-slideContent="slide-select-your-pass">
+                      <img class="w-1 lazyHowItWorkImg" alt="Screenshot of search results"
+                        data-original="/frontend/img/home/placeImg/select-your-pass.jpg"
+                        src="/frontend/img/home/imgPlace1px.png">
+                    </div>
+                    <div data-slideContent="slide-go-to-gym">
+                      <img class="w-1 lazyHowItWorkImg" alt="Screenshot of order confirmation"
+                        data-original="/frontend/img/home/placeImg/go-to-gym.jpg"
+                        src="/frontend/img/home/imgPlace1px.png">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="gym-slider">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <div id="gym-slider">
+                  <a class="gym-slider__link" href="/gyms-in-leeds" title="Gyms in Leeds">
+                    <img alt="Photo of Leeds - Nuffield Health" class="lazyGymImageOwl w-1"
+                      src="/frontend/img/home/imgPlace1px.png"
+                      data-original="https://static.hussle.com/upload/homepage/gym/NuffieldLeeds.jpg" />
+                    <div class="gym-slider__content">
+                      <p class="gym-slider__location font-medium">Gyms in Leeds</p>
+                    </div>
+                  </a>
+                  <a class="gym-slider__link" href="/gyms-in-chiswick" title="Gyms in Chiswick">
+                    <img alt="Photo of Chiswick - Roko Health Club" class="lazyGymImageOwl w-1"
+                      src="/frontend/img/home/imgPlace1px.png"
+                      data-original="https://static.hussle.com/upload/homepage/gym/Roko.jpg" />
+                    <div class="gym-slider__content">
+                      <p class="gym-slider__location font-medium">Gyms in Chiswick</p>
+                    </div>
+                  </a>
+                  <a class="gym-slider__link" href="/gyms-in-london" title="Gyms in London">
+                    <img alt="Photo of London - Sylvestrian Leisure Centre" class="lazyGymImageOwl w-1"
+                      src="/frontend/img/home/imgPlace1px.png"
+                      data-original="https://static.hussle.com/upload/homepage/gym/Sylvestrian.jpg" />
+                    <div class="gym-slider__content">
+                      <p class="gym-slider__location font-medium">Gyms in London</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="bg-light ppc__t-and-c--wrapper" id="termsandconditions">
+          <div class="container">
+            <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+              <div class="row text-center">
+                <h3 class="ppc__t-and-c--title text-center">Terms &amp; Conditions</h3>
+                <p class="ppc__t-and-c--text">By signing up with this discount (33% off for the first 3 months), the
+                  user is agreeing to a 3-month minimum pass. The user will be able to cancel or pause at the end of the
+                  minimum period. <br />
+                  This promotion is valid for the first three months of a Monthly+ Pass only. At the end of the
+                  promotional period, the Monthly+ Pass will renew at the full price the user signed up with. <br />
+                  This discount doesn't apply for any venue operated by Bannatyne Fitness Ltd and Village Health Clubs.
+                  Other gym exclusions may apply. <br />
+                  The promotion will be applied at checkout provided that the link above is selected, to apply the
+                  voucher code to the user’s account<br />
+                  This offer is not for use in conjunction with any other offer or discount. Applying any alternative
+                  discounts or vouchers will automatically overwrite this promotion.<br />
+                  The voucher may only be used once per user, and it cannot be transferred to other users<br />
+                  Users may not register multiple accounts to take advantage of this offer multiple times.<br />
+                  This voucher will not be accepted by participating gyms directly and can only be redeemed against the
+                  purchase of a Hussle pass on the Hussle website and has no equivalent cash value.<br />
+                  The list of available gyms is provided on the Hussle website and may change from time to time.<br />
+                  Please remember to take photographic ID with you when you visit the gym to gain access.<br />
+                  This promotion is due to expire on 31/10/2019 at 23:59, however Hussle reserves the right to suspend
+                  or discontinue this promotion at any time at its sole discretion.<br />
+                  Once added to an account, the voucher will be valid to purchase a pass for 30 days.<br />
+                  If the voucher expires before a user uses it, the voucher will not be reapplied.<br />
+                  For full Terms & Conditions of use please refer to the Hussle website.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        window.forceHomepageJsLoad = true;
+
+        if (typeof ga !== 'undefined') {
+          ga('set', 'campaignName', ' None:');
+        }
+
+        addCrossBrowserEventListener('datalayer_init', function (event) {
+          var voucher = null;
+          if (paugDataLayer.get('query_params/voucher')) {
+            voucher = paugDataLayer.get('query_params/voucher');
+          }
+          if (voucher) {
+            $.get("/landingpage/applyvoucher", {
+              'voucher': voucher
+            });
+          }
+        });
+      </script>
+    </div>
+
+
+    <footer class="footer">
+      <div class="visible-xs container-fluid footer__nav-container">
+        <div class="row">
+          <div class="col-xs-4">
+            <button class="js-quick-links__toggle btn btn--plain quick-links__toggle">
+              <span class="quick-links__toggle-text">Quick links</span>
+            </button>
+          </div>
+          <div class="col-xs-4 visible-xs">
+            <button type="button" class="js-back-to-top btn btn--plain btn--back-to-top icon-chevron-up">
+              <span class="sr-only">Back to top of page</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden-xs">
+        <div class="container">
+          <nav class="row footer__nav">
+            <div class="col-xs-4 col-md-3">
+              <ul class="list--unstyled">
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" title="Gym passes" href="/flexible-gym-day-and-monthly-passes">Gym
+                    passes</a>
+                </li>
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" title="Gyms near me" href="/gyms-near-me">Gyms near me</a>
+                </li>
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" title="Refer a friend and get free credit" href="/refer-a-friend">Free
+                    credit</a>
+                </li>
+                <li class="footer__nav-item">
+                  <a onclick="ga('send', 'event', 'OnClick', 'Footer', 'Student Discount');" class="footer__nav-link"
+                    title="Student Discount" href="https://hussle-uk.connect.studentbeans.com">Student Discount</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-xs-4 col-md-3">
+              <ul class="list--unstyled">
+                <li class="footer__nav-item">
+                  <a onclick="ga('send', 'event', 'OnClick', 'Footer', 'Partnerships');" class="footer__nav-link"
+                    title="Partnerships" href="https://www.husslepartnership.com">Partnerships</a>
+                </li>
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" title="Affiliate Programme" href="/about-us/affiliateprogramme">Affiliate
+                    Programme</a>
+                </li>
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" title="Careers" href="/about-us/careers" target="_blank">Careers</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-xs-4 col-md-3">
+              <ul class="list--unstyled">
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" title="Community" href="/community">Community</a>
+                </li>
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" title="Terms and Conditions &amp; Privacy Policy"
+                    href="/legal/terms">Terms</a>
+                </li>
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" title="Help" target="_blank" href="/help">FAQs &amp; Contact</a>
+                </li>
+              </ul>
+            </div>
+            <div class="hidden-xs hidden-sm col-md-3">
+              <a href="/" class="footer__nav-logo">
+                <span class="sr-only">Hussle.com - Home Page</span>
+                <img src="/frontend/img/logos/our-logo-full--light.svg" alt="Hussle logo" />
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="hidden-xs">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-7 col-md-8 col-xl-9">
+              <p class="footer__copyright font-regular">&copy; Sandcroft Avenue Limited trading as Hussle 2019. All
+                rights reserved. Company no. 06849691. VAT no. 101 5698 33.</p>
+            </div>
+            <div class="col-xs-5 col-md-4 col-xl-3">
+              <nav>
+                <ul class="list--unstyled pull-left footer__sub-nav">
+                  <li class="footer__sub-nav-item">
+                    <button type="button" class="js-quick-links__toggle btn btn--plain footer__sub-nav-link">
+                      <span class="quick-links__toggle-text">Quick links</span>
+                    </button>
+                  </li>
+                  <li class="footer__sub-nav-item">
+                    <a class="footer__sub-nav-link" href="https://portal.hussle.com">Partner Portal</a>
+                  </li>
+                </ul>
+              </nav>
+              <button type="button" class="js-back-to-top btn btn--plain btn--back-to-top icon-chevron-up">
+                <span class="sr-only">Back to top of page</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quick-links__container">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 js-quick-links quick-links hide">
+              <div class="row">
+                <div class="col-xs-12">
+                  <h5 class="quick-links__title">Quick Search Gyms by Pass Type</h5>
+                  <ul class="row quick-links__list">
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/london-gyms-with-day-passes"
+                        title="Gyms with Day passes in Waterlooville">
+                        Gyms with Day passes in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/london-gyms-with-no-contract-memberships"
+                        title="Gyms with No contract memberships in Waterlooville">
+                        London gym membership
+                      </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/london-gyms-with-fitness-classes"
+                        title="Gyms with Fitness classes in Waterlooville">
+                        Gyms with Fitness classes in London </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-xs-12">
+                  <h5 class="quick-links__title">Quick Search Gyms by Facility and Amenity</h5>
+                  <ul class="row quick-links__list">
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="https://www.hussle.com/london-gyms-with-swimming-pool-facility"
+                        title="Gyms with Swimming pool in London">
+                        Gyms with Swimming pool in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link"
+                        href="https://www.hussle.com/london-gyms-with-cardio-machines-facility"
+                        title="Gyms with Cardio machines in London">
+                        Gyms with Cardio machines in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="https://www.hussle.com/london-gyms-with-free-weights-facility"
+                        title="Gyms with Free weights in London">
+                        Gyms with Free weights in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="https://www.hussle.com/london-gyms-with-sauna-facility"
+                        title="Gyms with Sauna in London">
+                        Gyms with Sauna in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="https://www.hussle.com/london-gyms-with-steam-room-facility"
+                        title="Gyms with Steam room in London">
+                        Gyms with Steam room in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link"
+                        href="https://www.hussle.com/london-gyms-with-personal-training-facility"
+                        title="Gyms with Personal training in London">
+                        Gyms with Personal training in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link"
+                        href="https://www.hussle.com/london-gyms-with-fitness-studio-facility"
+                        title="Gyms with Fitness studio in London">
+                        Gyms with Fitness studio in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link"
+                        href="https://www.hussle.com/london-gyms-with-spa-facilities-facility"
+                        title="Gyms with Spa facilities in London">
+                        Gyms with Spa facilities in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="https://www.hussle.com/london-gyms-with-boxing-ring-facility"
+                        title="Gyms with Boxing ring in London">
+                        Gyms with Boxing ring in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link"
+                        href="https://www.hussle.com/london-gyms-with-group-exercise-facility"
+                        title="Gyms with Group exercise in London">
+                        Gyms with Group exercise in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="https://www.hussle.com/london-gyms-with-lockers-amenity"
+                        title="Gyms with Lockers in London">
+                        Gyms with Lockers in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="https://www.hussle.com/london-gyms-with-parking-amenity"
+                        title="Gyms with Parking in London">
+                        Gyms with Parking in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="https://www.hussle.com/london-gyms-with-creche-amenity"
+                        title="Gyms with Creche in London">
+                        Gyms with Creche in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="https://www.hussle.com/london-gyms-with-wifi-amenity"
+                        title="Gyms with Wi-Fi in London">
+                        Gyms with Wi-Fi in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="https://www.hussle.com/london-gyms-with-cable-tv-amenity"
+                        title="Gyms with Cable TV in London">
+                        Gyms with Cable TV in London </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-xs-12">
+                  <h5 class="quick-links__title">Quick Search Gyms by Gym Type</h5>
+                  <ul class="row quick-links__list">
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="https://www.hussle.com/gyms-in-london"
+                        title="Search Gyms in London">Search
+                        Gyms in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="https://www.hussle.com/best-gyms-in-london"
+                        title="Best Gyms in London">Best Gyms in London </a>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="https://www.hussle.com/cheap-gyms-in-london"
+                        title="Cheap Gyms in London">Cheap Gyms in London </a>
+                    </li>
+
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/hotel-gyms-in-london" title="Hotel Gyms in London">
+                        Hotel Gyms in London </a>
+                    </li>
+
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/country-golf-club-gyms-in-london"
+                        title="Country/Golf Club Gyms in London">
+                        Country/Golf Club Gyms in London </a>
+                    </li>
+
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/boxing-gyms-in-london" title="Boxing Gyms in London">
+                        Boxing Gyms in London </a>
+                    </li>
+
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/mma-gyms-in-london" title="MMA Gyms in London">
+                        MMA Gyms in London </a>
+                    </li>
+
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/specialist-training-gyms-in-london"
+                        title="Specialist Training Gyms in London">
+                        Specialist Training Gyms in London </a>
+                    </li>
+
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/muscle-building-gyms-in-london"
+                        title="Muscle Building Gyms in London">
+                        Muscle Building Gyms in London </a>
+                    </li>
+
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/cardio-area-gyms-in-london"
+                        title="Cardio Area Gyms in London">
+                        Cardio Area Gyms in London </a>
+                    </li>
+
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/24-hour-gyms-in-london" title="24 hour Gyms in London">
+                        24 hour Gyms in London </a>
+                    </li>
+
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/family-friendly-gyms-in-london"
+                        title="Family Friendly Gyms in London">
+                        Family Friendly Gyms in London </a>
+                    </li>
+
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/school-college-gyms-in-london"
+                        title="School/College Gyms in London">
+                        School/College Gyms in London </a>
+                    </li>
+
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/leisure-centre-gyms-in-london"
+                        title="Leisure Centre Gyms in London">
+                        Leisure Centre Gyms in London </a>
+                    </li>
+
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/outdoor-training-gyms-in-london"
+                        title="Outdoor Training Gyms in London">
+                        Outdoor Training Gyms in London </a>
+                    </li>
+
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/members-only-gyms-in-london"
+                        title="Members only Gyms in London">
+                        Members only Gyms in London </a>
+                    </li>
+
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/group-exercise-gyms-in-london"
+                        title="Group Exercise Gyms in London">
+                        Group Exercise Gyms in London </a>
+                    </li>
+
+
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a class="quick-links__link" href="/bootcamp-gyms-in-london" title="Bootcamp Gyms in London">
+                        Bootcamp Gyms in London </a>
+                    </li>
+                  </ul>
+                </div>
+
+
+
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <ul class="row quick-links__list">
+                    <li class="col-xs-12 col-sm-6 col-md-4 quick-links__item">
+                      <a href="/sitemap" class="quick-links__link">Full gym directory</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  </div>
+
+</body>
+
+</html>
