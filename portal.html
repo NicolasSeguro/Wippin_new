@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+    <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 text-center m-bottom40 m-top40">
+        <a class="btn btn--block btn--sm btn--keyline-light" href="https://partners.hussle.com/redeem">Quick redeem here</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+        <div class="login-panel panel panel-default m-top0">
+    <div class="panel-heading">
+        <span class="our-logo our-logo--full our-logo--login">
+            <span class="sr-only">Wippin</span>
+        </span>
+        <h3 class="panel-title">Partner portal login</h3>
+    </div>
+    <div class="panel-body">
+        <form id="login" enctype="application/x-www-form-urlencoded" action="/authentication/login" method="post">
+            <div class="form-group">
+                <input class="form-control input-lg" type="text" name="s_email" id="s_email" value="" size="30" maxlength="255" placeholder="Enter email" />
+            </div>
+            <div class="form-group">
+                <input class="form-control input-lg" type="password" name="s_password" id="s_password" value="" size="30" maxlength="40" placeholder="Enter password" />
+            </div>
+            <div class="checkbox">
+                <input type="hidden" value="0" name="rememberme" />
+                <label><input type="checkbox" value="1" name="rememberme" /> Remember me</label>
+            </div>
+            <!-- NEW NOTIFICATIONS -->
+            <div class="form-group m-top30">
+                <button id="submitbutton" class="btn btn--sm btn--block btn--primary" type="submit">Sign In</button>
+            </div>
+            <div class="form-group gray text-center">
+                <span>Forgotten password? </span><a href="https://partners.hussle.com/forgottenpassword" title="Forgotten your password?">Click here</a>
+            </div>
+        </form>
+    </div>
+</div>        <div class="text-center m-top40">
+            <h4>Contact us</h4>
+            <p>Gym managers and venue operators only</p>
+            <p>Call Mon-Fri 0800-1800 on: <br><a href="tel:02003331181">0200 333 1181</a></p>
+            <p>Email us out of hours on:<br><a href="mailto:helpdesk@hussle.com" onclick="Zenbox.show(); return false;" class="ellipsis">helpdesk@hussle.com</a></p>
+        </div>
+    </div>
+</div>
+</div>
+    <script type="text/javascript" src="//assets.zendesk.com/external/zenbox/v2.6/zenbox.js"></script>
+    <link type="text/css" media="screen, projection" rel="stylesheet" href="//assets.zendesk.com/external/zenbox/v2.6/zenbox.css">
+    <script type="text/javascript">
+        if (typeof (Zenbox) !== "undefined") {
+            Zenbox.init({
+                dropboxID: "20197821",
+                url: "https://payasugym.zendesk.com",
+                tabTooltip: "Support",
+                tabImageURL: "https://assets.zendesk.com/external/zenbox/images/tab_support.png",
+                tabColor: "black",
+                tabPosition: "Right",
+                hide_tab: "true"
+            });
+        }
+    </script>
+    <!-- Google Analitics tracking code -->
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42088955-1', 'payasugym.com');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
